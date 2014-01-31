@@ -1,0 +1,6 @@
+$gutter-width:      60px;
+$half-gutter-width: $gutter-width / 2;
+
+$sidebar-width:   200px;
+$post-width:      500px;
+$container-width: $sidebar-width + $post-width + (2 * $gutter-width);

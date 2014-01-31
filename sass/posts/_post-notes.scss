@@ -1,0 +1,18 @@
+a[name=notes] {
+	display: none;
+}
+
+.post_notes {
+	@extend %small-type;
+	@extend %plain-links;
+	
+	@include margin-leader(2);
+	
+	blockquote {
+		margin-bottom: 0;
+	}
+}
+
+.more_notes_link_container {
+	list-style: none;
+}

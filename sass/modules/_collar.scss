@@ -1,0 +1,110 @@
+.collar {
+	height: $collar-height;
+	width: $collar-width;
+	margin: $collar-top 0 $collar-bottom;
+	margin-left: $collar-left;
+	
+	display: inline-block;
+	vertical-align: top;
+	
+	@include puppy-background-size($collar-image, $collar-width, $collar-height);
+	
+	background-position: center;
+	background-repeat: no-repeat;
+	
+	position: relative;
+	left: -$half-gutter-width;
+	z-index: 100;
+}
+
+.collar-hole,
+.collar-ring {
+	width: $collar-ring-width;
+	height: $collar-ring-height;
+	
+	position: absolute;
+	top: $collar-ring-top;
+	left: 50%;
+	margin-left: $collar-ring-left;
+}
+
+.collar-hole {
+	z-index: 45;
+	
+	@include ie-pseudo-element('after');
+	
+	// Hole in the tag
+	&:after,
+	.after {
+		content: '';
+		display: block;
+	
+		box-shadow: inset 1px 2px 3px rgba(0,0,0,0.1);
+	
+		$diameter: 16px;
+		background-color: $content-background;
+		border-radius: 100px;
+		width: $diameter;
+		height: $diameter;
+	
+		position: absolute;
+		left: 50%;
+		margin-left: -($diameter / 2);
+		bottom: -($diameter / 2);
+	}
+}
+
+.collar-ring {
+	// Top of the ring
+	&.top {
+		@include puppy-background-size($collar-ring-top-image, $collar-ring-width, $collar-ring-height);
+		z-index: 40;
+	}
+	
+	// Bottom left of the ring
+	&.bottom-left {
+		@include puppy-background-size($collar-ring-bottom-left-image, $collar-ring-width, $collar-ring-height);
+		z-index: 50;
+	}
+	
+	// Bottom right of the ring
+	&.bottom-right {
+		@include puppy-background-size($collar-ring-bottom-right-image, $collar-ring-width, $collar-ring-height);
+		z-index: 10;
+	}
+}
+
+#blog_avatar {
+	@extend %plain-links;
+	
+	@include margin-trailer(1);
+	
+	text-align: center;
+	
+	a {
+		width: 100%;
+	}
+	
+	img {
+		box-shadow: 1px 2px 3px rgba(0,0,0,0.1);
+		border-radius: 100px;
+		max-width: $sidebar-width;
+		
+		@include apply-origin($collar-tag-rotation-origin, false);
+		
+		// Jingling animation
+		&.animate {
+			@include animation-name($jingle-animation);
+			@include animation-duration(1s);
+			@include animation-timing-function(ease-in-out);
+		}
+	}
+	
+	// Collar tag
+	.avatar {
+		margin-top: $collar-tag-top;
+		display: block;
+		position: relative;
+		z-index: 30;
+	}
+}

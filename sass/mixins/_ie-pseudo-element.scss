@@ -1,0 +1,31 @@
+// Allows the creation of pseudo elements in older version of Internet Explorer.
+// A <span> element with a class for the given position ("before" or "after") will be created
+// and inserted within the parent element.
+//
+// @param string $where The position of the pseudo element. Either "before", "after", or "both".
+// @param string $content The contents for the element. Defaults to ''.
+// @param string $second-content If $where is "both", this will be the content for the :after pseudo-element.
+//                               Defaults to ''.
+@mixin ie-pseudo-element($where, $content: '', $second-content: '') {
+	@if ($where == "before") {
+		*zoom: expression(
+			this.runtimeStyle.zoom="1",
+			this.insertBefore( document.createElement("span"), this.firstChild ).className = "before",
+			this.firstChild.innerText = "#{$content}"
+		);
+	} @else if ($where == "after") {
+		*zoom: expression(
+			this.runtimeStyle.zoom="1",
+			this.appendChild( document.createElement("span") ).className = "after",
+			this.lastChild.innerText = "#{$content}"
+		);
+	} @else if ($where == "both") {
+		*zoom: expression(
+			this.runtimeStyle.zoom="1",
+			this.insertBefore( document.createElement("span"), this.firstChild ).className = "before",
+			this.firstChild.innerText = "#{$content}",
+			this.appendChild( document.createElement("span") ).className = "after",
+			this.lastChild.innerText = "#{$second-content}"
+		);
+	}
+}

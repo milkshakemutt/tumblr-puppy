@@ -1,0 +1,15 @@
+#container {
+	@include puppy-clearfix;
+	
+	background: $content-background;
+	
+	// Subtle border on the sides
+	border: 1px solid rgba(0,0,0,0.05);
+	border-top: none;
+	border-bottom: none;
+	
+	margin: 0 auto;
+	
+	padding: 0 $half-gutter-width;
+	width: $container-width;
+}

@@ -1,0 +1,31 @@
+$page-background:    #f9f9f9;
+$content-background: #fff;
+
+$page-bar:         #000;
+$page-bar-opacity: 0.15;
+
+$heading-color:        #444;
+$text-color:           #777;
+$secondary-text-color: #999;
+
+$link-color:       #000;
+$link-hover-color: #000;
+
+$divider-color: #e9e9e9;
+
+@if $use-tags {
+	$page-background:    #{'{color:Page background}'};
+	$content-background: #{'{color:Content background}'};
+
+	$page-bar:         #{'{color:Page bar}'};
+	$page-bar-opacity: #{'{text:Page bar opacity}'};
+
+	$heading-color:        #{'{color:Heading color}'};
+	$text-color:           #{'{color:Text color}'};
+	$secondary-text-color: #{'{color:Secondary text color}'};
+
+	$link-color:       #{'{color:Link color}'};
+	$link-hover-color: #{'{color:Link hover color}'};
+
+	$divider-color: #{'{color:Divider color}'};
+}

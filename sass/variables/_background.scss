@@ -1,0 +1,7 @@
+$page-background-image: image-url('paw-pattern@2x.png', true); // True to only return the path, not in a url() function
+$page-background-size:  80px 80px;
+
+@if $use-tags {
+	$page-background-image: #{'{image:Page background}'};
+	$page-background-size:  #{'{text:Page background size}'};
+}

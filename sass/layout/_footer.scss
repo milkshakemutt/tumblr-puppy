@@ -1,0 +1,49 @@
+#footer {
+	@extend %small-type;
+	@extend %plain-links;
+	
+	text-align: center;
+	
+	.buttons {
+		list-style: none;
+		overflow: hidden;
+		
+		margin: 0 auto rhythm(2, $small-font-size);
+		width: $gutter-width * 2 * 3;
+		
+		.left, .count, .right {
+			margin-bottom: 0;
+			
+			width: $gutter-width * 2;
+		}
+		
+		// When there is no previous button
+		.count {
+			margin-left: $gutter-width * 2;
+			float: left;
+		}
+		
+		// When there is a previous button
+		.left + .count {
+			margin-left: 0;
+		}
+		
+		.left {
+			text-align: right;
+			float: left;
+		}
+		
+		.right {
+			text-align: left;
+			float: right;
+		}
+	}
+	
+	.copyright {
+		margin-bottom: 0;
+	}
+	
+	.theme_credit {
+		@include margin-trailer(1, $small-font-size);
+	}
+}

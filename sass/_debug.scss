@@ -1,0 +1,21 @@
+body {
+	position: relative;
+	
+	&:after {
+		// Debug grid background
+		background: transparent url('../images/grid.png') top center repeat-y;
+		
+		content: '';
+		display: block;
+		
+		// Cover the <body>
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		
+		// Prevent interaction with the overlay
+		pointer-events: none;
+	}
+}

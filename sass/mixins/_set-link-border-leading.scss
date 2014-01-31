@@ -1,0 +1,12 @@
+// Sets the leading of the border on a link.
+//
+// @param px $leading The amount of leading between the link text and the underline.
+// @param number $line-height The line height of the link. Defaults to 1.
+@mixin set-link-border-leading($leading, $line-height: 1) {
+	$pixel-line-height: $line-height * $base-line-height;
+	
+	&:before,
+	.before {
+		bottom: rhythm($line-height, $offset: $pixel-line-height - $leading);
+	}
+}

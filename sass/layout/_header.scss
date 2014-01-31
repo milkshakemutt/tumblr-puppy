@@ -1,0 +1,21 @@
+#header {
+	margin: rhythm(1) $half-gutter-width rhythm(2);
+	
+	float: right;
+	width: $post-width;
+	
+	h1 {
+		a:after,
+		a .after {
+			@extend %icon-tilted-paw-print;
+			
+			margin-left: 0.25em;
+		}
+		
+		// IE support
+		a {
+			width: 100%;
+			@include ie-pseudo-element('after', $icon-font-paw-print);
+		}
+	}
+}

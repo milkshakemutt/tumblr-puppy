@@ -1,0 +1,19 @@
+.link_post {
+	.link {
+		@include adjust-font-size-to($h3-font-size, 1);
+		@include set-link-border-leading(0); // Reposition the underline for the font size
+		font-weight: bold;
+		
+		@include margin-trailer(1, $h3-font-size);
+		
+		@include ie-pseudo-element('after', $icon-font-paw-print);
+		
+		// Add a tilted paw print after the link text
+		&:after,
+		.after {
+			@extend %icon-tilted-paw-print;
+			
+			margin-left: 0.25em;
+		}
+	}
+}

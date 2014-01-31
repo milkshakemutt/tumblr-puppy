@@ -1,0 +1,25 @@
+@import 'compass/css3/transform';
+
+%icon {
+	font-family: $icon-font;
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	
+	// Remove the icon from the document flow to prevent the typographic rhythm from being thrown off
+	position: absolute;
+}
+
+%icon-paw-print {
+	@extend %icon;
+	content: $icon-font-paw-print;
+}
+
+%icon-tilted-paw-print {
+	@extend %icon-paw-print;
+	@include rotate(45deg);
+}

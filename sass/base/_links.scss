@@ -1,0 +1,64 @@
+@import 'compass/css3/transition';
+@import 'compass/css3/transform';
+
+$link-fade-duration: 0.175s;
+
+a {
+	@include single-transition(color, $link-fade-duration);
+	text-decoration: none;
+	color: $link-color;
+	
+	// Allows transformations
+	display: inline-block;
+	
+	position: relative; // Allows us to position the underline
+	z-index: 1; // Allows us to layer the underline under the text
+	
+	// Position the underline
+	@include set-link-border-leading(2px);
+	
+	// Use a pseudo-element for the underline so we can control its distance from the text
+	&:before {
+		@include single-transition(border-color, $link-fade-duration);
+		
+		background: transparent;
+		content: '';
+		display: block;
+		width: 100%;
+		
+		// Use a stylized border under links
+		border-bottom: 1px dashed $link-color;
+		
+		position: absolute; // Allows positioning the underline
+		z-index: -1; // Layer the underline under the text
+	}
+	
+	&:hover {
+		color: $link-hover-color;
+		
+		&:before {
+			border-color: $link-hover-color;
+		}
+	}
+	
+	&:active {
+		@include translate(1px, 1px);
+	}
+}
+
+
+
+// Links without special styling
+%plain-links {
+	a {
+		&:before {
+			border-bottom: none;
+		}
+	}
+}
+
+
+
+h1, h2, h3 {
+	@extend %plain-links;
+}

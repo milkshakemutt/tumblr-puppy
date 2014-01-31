@@ -1,0 +1,14 @@
+.media {
+	@extend %plain-links;
+	
+	@include margin-trailer(1);
+	
+	img {
+		// Remove extra whitespace under images
+		vertical-align: top;
+	}
+}
+
+.caption {
+	@include margin-trailer(1);
+}

@@ -1,0 +1,88 @@
+$divider-margin:       2;
+$small-divider-margin: 1.5;
+
+$divider-paw-height: $base-line-height;
+$divider-paw-width:  $base-line-height * 1.5; // Extra width covers the bar to "break" it into two
+
+.divider {
+	clear: both;
+	display: block;
+	position: relative;
+	
+	// Divider dimensions
+	margin: rhythm($divider-margin) 0 rhythm($divider-margin, $offset: 1px);
+	height: 1px;
+	
+	// Divider color
+	background: $divider-color;
+	
+	@include ie-pseudo-element('after', $icon-font-paw-print);
+	
+	// Paw print
+	&:after,
+	.after {
+		@extend %icon-paw-print;
+
+		// Center the paw and cover the divider to appear broken into two parts
+		background-color: $content-background;
+		display: block;
+		text-align: center;
+
+		// Move the paw print up to be vertically centered
+		position: absolute;
+		top: -($divider-paw-height / 2);
+		left: 50%;
+		margin-left: -($divider-paw-width / 2);
+
+		// Paw print color
+		color: $divider-color;
+
+		// Paw print dimensions
+		font-size: $base-line-height;
+		height: $divider-paw-height;
+		width: $divider-paw-width;
+	}
+	
+	&.small {
+		margin-top: rhythm($small-divider-margin);
+		margin-bottom: rhythm($small-divider-margin, $offset: 1px);
+	}
+	
+	&.circle {
+		@include ie-pseudo-element('both', '', $icon-font-paw-print);
+		
+		&:after,
+		.after {
+			border-radius: 500px;
+			background: $divider-color;
+			color: $content-background;
+			
+			// Make a circle with the paw vertically centered
+			height: $divider-paw-width;
+			line-height: $divider-paw-width;
+			vertical-align: middle;
+			
+			// Account for the new dimensions
+			top: -($divider-paw-width / 2);
+		}
+		
+		// Visually break the divider into two with a background colored rectangle
+		&:before,
+		.before {
+			content: '';
+			display: block;
+			
+			// Visually break the divider into two halves
+			background-color: $content-background;
+			
+			// Move the box up to be vertically centered
+			position: absolute;
+			top: -($divider-paw-width / 2);
+			left: 50%;
+			margin-left: -($divider-paw-width * 1.5 / 2);
+			
+			height: $divider-paw-width;
+			width: $divider-paw-width * 1.5;
+		}
+	}
+}

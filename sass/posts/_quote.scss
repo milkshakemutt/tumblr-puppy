@@ -1,0 +1,40 @@
+.quote_post {
+	@include adjust-font-size-to($h3-font-size, 1); // 1 line tall
+	
+	font-family: $serif;
+	margin-bottom: 0;
+	
+	// Quotes
+	& > span {
+		font-family: Georgia;
+		
+		// Opening quote
+		&:first-child {
+			@include adjust-font-size-to($h2-font-size);
+		
+			// Pull the quote off to the side
+			float: left;
+			display: inline-block;
+			width: 1em;
+			margin-left: -1.1em;
+			padding-right: 0.1em;
+			text-align: right;
+	
+			// Position the quote nicely
+			position: relative;
+			top: -0.28em;
+	
+			height: rhythm(1, $h2-font-size);
+		}
+	}
+}
+
+.quote_source {
+	@extend %small-type;
+	@extend %plain-links;
+	
+	@include margin-trailer(1, $small-font-size);
+	
+	// Indent the source
+	margin-left: $half-gutter-width;
+}

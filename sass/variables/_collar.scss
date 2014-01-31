@@ -1,0 +1,39 @@
+$collar-image:  image-url('collar@2x.png', true); // True to only return the path, not in a url() function
+$collar-height: 126px;
+$collar-width:  910px;
+$collar-top:    (144px - $collar-height) / 2;
+$collar-bottom: (144px - $collar-height) / 2;
+$collar-left:   -26px;
+
+$collar-ring-top-image:          image-url('collar-ring-top@2x.png', true);
+$collar-ring-bottom-left-image:  image-url('collar-ring-bottom-left@2x.png', true);
+$collar-ring-bottom-right-image: image-url('collar-ring-bottom-right@2x.png', true);
+$collar-ring-width:  60px;
+$collar-ring-height: 60px;
+$collar-ring-top:    -32px;
+$collar-ring-left:   -($collar-ring-width / 2);
+
+$collar-tag-top: 16px;
+$collar-tag-rotation-origin: center ($collar-ring-height + $collar-ring-top - $collar-tag-top);
+
+@if $use-tags {
+	$collar-image: #{'{image:Collar}'};
+	
+	$collar-height: #{'{text:Collar height}'};
+	$collar-width:  #{'{text:Collar width}'};
+	$collar-top:    #{'{text:Collar top}'};
+	$collar-top:    #{'{text:Collar bottom margin}'};
+	$collar-left:   #{'{text:Collar left}'};
+	
+	$collar-ring-top-image:          #{'{image:Collar ring top}'};
+	$collar-ring-bottom-left-image:  #{'{image:Collar ring bottom left}'};
+	$collar-ring-bottom-right-image: #{'{image:Collar ring bottom right}'};
+	
+	$collar-ring-height: #{'{text:Collar ring height}'};
+	$collar-ring-width:  #{'{text:Collar ring width}'};
+	$collar-ring-top:    #{'{text:Collar ring top}'};
+	$collar-ring-left:   #{'{text:Collar ring left}'};
+	
+	$collar-tag-top: #{'{text:Collar tag top}'};
+	$collar-tag-rotation-origin: #{'{text:Collar tag rotation origin}'};
+}

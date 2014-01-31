@@ -1,0 +1,69 @@
+.post_info {
+	@extend %plain-links;
+	
+	@include puppy-clearfix;
+	@include margin-trailer(1);
+	
+	text-transform: lowercase;
+	
+	li {
+		@extend %small-type;
+		
+		list-style: none;
+		
+		margin-right: 10px;
+		float: left;
+		
+		// Move post controls to the right
+		&.post_controls {
+			margin-right: 0;
+			float: right;
+			
+			li {
+				margin-right: 0;
+				margin-left: 10px;
+				
+				height: rhythm(1, $small-font-size);
+				
+			}
+		}
+		
+		// Use lighter colors for links
+		& > a {
+			color: $secondary-text-color;
+		
+			&:hover {
+				color: $link-hover-color;
+			}
+		}
+	}
+}
+
+%move-to-new-line {
+	clear: left;
+}
+
+// Move sources and reblog credit onto a new line
+.timestamp,
+.notecount {
+	& + .content_source,
+	& + .reblogged_from {
+		@extend %move-to-new-line;
+	}
+}
+
+// Move tags onto a new line
+.timestamp,
+.notecount,
+.content_source,
+.reblogged_from {
+	& + .tag {
+		@extend %move-to-new-line;
+	}
+}
+
+.tag {
+	font-family: $serif;
+	font-style: italic;
+	text-transform: lowercase;
+}

@@ -1,0 +1,25 @@
+@import 'compass/css3/transform';
+
+$jingle-animation: jingle;
+
+@include keyframes($jingle-animation) {
+	0% {
+		@include rotate(0deg);
+	}
+
+	25% {
+		@include rotate(22.5deg);
+	}
+	
+	50% {
+		@include rotate(-11.25deg);
+	}
+	
+	75% {
+		@include rotate(5.625deg);
+	}
+	
+	100% {
+		@include rotate(0deg);
+	}
+}

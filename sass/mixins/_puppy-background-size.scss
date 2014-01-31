@@ -1,0 +1,9 @@
+@mixin puppy-background-size($image, $width, $height) {
+	background-image: url($image);
+	
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='#{$image}', sizingMethod='scale');
+	-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='#{$image}', sizingMethod='scale')";
+	background-image: none\9; // IE8 and below
+	
+	background-size: $width $height;
+}

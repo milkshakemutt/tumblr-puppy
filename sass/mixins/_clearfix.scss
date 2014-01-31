@@ -1,0 +1,15 @@
+// Based on a clearfix solution from http://nicolasgallagher.com/micro-clearfix-hack/
+@mixin puppy-clearfix() {
+	&:before,
+	&:after {
+	    content: " "; // Prevents an Opera bug
+	    display: table; // Contains top margins on child elements
+	}
+	
+	&:after {
+	    clear: both;
+	}
+	
+	// Trigger hasLayout in IE6/7
+	*zoom: 1;
+}

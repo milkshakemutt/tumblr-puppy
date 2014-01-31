@@ -1,0 +1,29 @@
+@import 'compass/css3/opacity';
+
+html, body {
+	min-height: 100%;
+}
+
+html {
+	background-color: $page-background;
+	background-image: url($page-background-image);
+	background-size:  $page-background-size;
+}
+
+body {
+	height: 100%;
+	
+	// Transparent bar on top of the page
+	&:before {
+		background: $page-bar;
+		opacity: $page-bar-opacity;
+		
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		height: 8px;
+		z-index: -1;
+	}
+}
